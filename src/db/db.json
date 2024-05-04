@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1_bananas",
+    "title": "Bananas",
+    "description": "Yellow fruits from Africa"
+  },
+  {
+    "id": "2_book",
+    "title": "Book",
+    "description": "Awersome book for your library"
+  },
+  {
+    "id": "3_videogame",
+    "title": "Videogame",
+    "description": "Amazing videogame for your pleasure time"
+  },
+  {
+    "id": "4_notebook",
+    "title": "Notebook",
+    "description": "A 30-page notebook to record your thoughts"
+  },
+  {
+    "id": "5_laptop",
+    "title": "Laptop",
+    "description": "Moders technology Laptop for yuor hacking!"
+  }
+]
