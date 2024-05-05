@@ -1,31 +1,44 @@
-import { Product } from "../types"
+import { appActions } from "../store/slice"
+import { useAppDispatch, useAppSelector } from "../store/store"
 
-type Props = {
-  products: Product[]
-  loading: boolean
-  deleteHandler: (id: string) => void
-}
+export const Products = () => {
+  const dispatch = useAppDispatch()
 
-export const Products = ({ products, loading, deleteHandler }: Props) => {
-  return products.length ? (
-    <div className="productsContainer">
-      <ul className="productsList">
-        {loading
-          ? new Array(5).fill(null).map((_, i) => (
-              <li className="product" key={i}>
-                <span>Loading...</span>
-              </li>
-            ))
-          : products.map((product) => (
-              <li key={product.id} className="product">
-                <span>Title: {product.title}</span>
-                <span>Description: {product.description}</span>
-                <button onClick={() => deleteHandler(product.id)}>Delete</button>
-              </li>
-            ))}
-      </ul>
-    </div>
-  ) : (
-    <h3>The list of products is empty</h3>
+  const products = useAppSelector((state) => state.app.products)
+  const loading = useAppSelector((state) => state.app.loading)
+
+  const deleteHandler = (id: string) => {
+    dispatch(appActions.deleteProduct(id))
+  }
+
+  if (!products.length) {
+    return <h3>The list of products is empty</h3>
+  }
+  if (loading) {
+    return (
+      <div className="productsList">
+        <span>Loading...</span>
+      </div>
+    )
+  }
+  return (
+    <ul className="productsList">
+      {products.map((product) => (
+        <li key={product.id} className="product">
+          <div className="productInfo">
+            <span>Title:</span> {product.title}
+          </div>
+          <div className="productInfo">
+            <span>Description:</span> {product.description}
+          </div>
+          <div className="productInfo">
+            <span>Price:</span> {product.price}$
+          </div>
+          <button className="deleteBtn" onClick={() => deleteHandler(product.id)}>
+            Удалить товар
+          </button>
+        </li>
+      ))}
+    </ul>
   )
 }
