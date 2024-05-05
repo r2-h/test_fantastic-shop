@@ -18,27 +18,50 @@ ul {
 }
 
 .formContainer {
-  margin-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  width: 325px;
   display: flex;
   align-items: center;
   text-align: left;
   justify-content: center;
   flex-direction: column;
+  row-gap: 15px;
+
+  .inputWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    align-items: start;
+    height: 50px;
+
+    .input {
+      width: 100%;
+      height: 20px;
+    }
+
+    .textarea {
+      width: 100%;
+      min-height: 50px;
+    }
+
+    &:nth-child(3) {
+      margin-top: 30px;
+    }
+  }
+
+  .submitBtn {
+    align-self: flex-end;
+    margin: 0 -6px 0 0;
+  }
 }
+
 .wrapper {
   display: flex;
   gap: 10px;
-  align-items: center;
-  justify-content: start;
+  align-items: last baseline;
   margin-bottom: 15px;
-}
-
-.input {
-  display: flex;
-  flex-direction: column;
-  font-size: 13px;
-  align-items: start;
-  height: 50px;
 }
 
 .error {
@@ -56,10 +79,17 @@ ul {
 .product {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
 
-.textarea {
-  width: 325px;
-  min-height: 50px;
+  row-gap: 5px;
+  border-radius: 5px;
+  width: 400px;
+  padding: 10px;
+  background-color: rgb(49, 49, 49);
+
+  .productInfo {
+    text-align: left;
+  }
+  .deleteBtn {
+    align-self: flex-end;
+  }
 }
